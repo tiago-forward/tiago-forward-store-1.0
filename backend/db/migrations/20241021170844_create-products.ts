@@ -13,7 +13,6 @@ export async function up(knex: Knex): Promise<void> {
     })
 } // Oque a migration vai fazer no banco de dados (Altera)
 
-
 export async function down(knex: Knex): Promise<void> {
     await knex.schema.dropTable('products')
 } // O método que descreve oque deu errado (Remove oque foi alterado)
