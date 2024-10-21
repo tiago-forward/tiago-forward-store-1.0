@@ -1,5 +1,5 @@
 import { Knex } from "knex";
-
+// Armazena detalhes dos produtos (como as velas) que estarão à venda.
 export async function up(knex: Knex): Promise<void> {
     await knex.schema.createTable('products', (table) => {
         table.uuid('id').primary()

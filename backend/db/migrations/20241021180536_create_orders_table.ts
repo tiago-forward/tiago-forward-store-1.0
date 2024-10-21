@@ -1,5 +1,5 @@
 import type { Knex } from "knex";
-
+// Guarda o histórico de encomendas feitas pelos clientes.
 export async function up(knex: Knex): Promise<void> {
     await knex.schema.createTable('orders', (table) => {
         table.uuid('id').primary()
