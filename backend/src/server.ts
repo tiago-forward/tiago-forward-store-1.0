@@ -1,6 +1,7 @@
-import fastify from 'fastify';
+import fastify from 'fastify'
 import crypto from 'node:crypto'
-import { knex } from './database';
+import { knex } from './database'
+import { env } from './env'
 
 const app = fastify({
   logger: true
@@ -26,7 +27,7 @@ app.get('/products', async function handler(request, reply) {
   try {
     const products = await knex('products').select('*')
 
-    return products
+    return reply.send(products)
   } catch (error) {
     reply.status(500).send({ error: 'Failed to fetch products' });
   }
@@ -44,7 +45,7 @@ app.get('/products', async function handler(request, reply) {
 
 (async () => {
   try {
-    await app.listen({ port: 3333 });
+    await app.listen({ port: env.PORT });
     console.log('HTTP Server Running');
   } catch (err) {
     app.log.error(err);
