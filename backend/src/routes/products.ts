@@ -4,6 +4,28 @@ import crypto from 'node:crypto'
 import { knex } from "../database"
 
 export async function productsRoutes(app: FastifyInstance) {
+    app.get('/', async function handler(request, reply) {
+        const products = await knex('products').select()
+
+        return reply.send({
+            products
+        })
+    })
+
+    app.get('/:id', async function handler(request, reply) {
+        const getProductParamsSchema = z.object({
+            id: z.string().uuid(),
+        })
+
+        const { id } = getProductParamsSchema.parse(request.params)
+
+        const product = await knex('products').where('id', id).first()
+
+        return reply.send({
+            product
+        })
+    })
+
     app.post('/', async function handler(request, reply) {
         const createProductBodySchema = z.object({
             title: z.string(),
