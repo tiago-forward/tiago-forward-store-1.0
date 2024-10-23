@@ -82,4 +82,40 @@ export async function productsRoutes(app: FastifyInstance) {
             return reply.status(500).send({ error: 'Failed to delete product' });
         }
     })
+
+    // Atualizar Produto
+    app.put('/:product_id', async function handler(request, reply) {
+        const updateProductParamsSchema = z.object({
+            product_id: z.string().uuid(),
+        })
+
+        const updateProductBodySchema = z.object({
+            title: z.string().optional(),
+            description: z.string().optional(),
+            price: z.number().optional(),
+            stock_quantity: z.number().optional(),
+            image_url: z.string().optional()
+        })
+
+        const { product_id } = updateProductParamsSchema.parse(request.params)
+
+        const { title, description, price, stock_quantity, image_url } = updateProductBodySchema.parse(request.body)
+
+        try {
+            const product = await knex('products').where('id', product_id).update({
+                title,
+                description,
+                price,
+                stock_quantity,
+                image_url,
+            })
+
+            return reply.status(200).send({
+                message: 'Product updated successfully',
+                product
+            })
+        } catch (error) {
+            return reply.status(500).send({ error: 'Failed to update product' })
+        }
+    })
 }
