@@ -1,10 +1,13 @@
 import fastify from 'fastify'
-import crypto from 'node:crypto'
-import { knex } from './database'
 import { env } from './env'
+import { productsRoutes } from './routes/products';
 
 const app = fastify({
   logger: true
+});
+
+app.register(productsRoutes, {
+  prefix: 'products'
 });
 
 // app.get('/products', async function handler(request, reply) {
@@ -22,16 +25,6 @@ const app = fastify({
 //     reply.status(500).send({ error: 'Failed to fetch products' });
 //   }
 // });
-
-app.get('/products', async function handler(request, reply) {
-  try {
-    const products = await knex('products').select('*')
-
-    return reply.send(products)
-  } catch (error) {
-    reply.status(500).send({ error: 'Failed to fetch products' });
-  }
-});
 
 // app.get('/orders', async function handler(request, reply) {
 //   try {
