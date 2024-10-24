@@ -1,9 +1,14 @@
 import fastify from 'fastify'
 import { env } from './env'
 import { productsRoutes } from './routes/products';
+import { usersRoutes } from './routes/users';
 
 const app = fastify({
   logger: true
+});
+
+app.register(usersRoutes, {
+  prefix: 'users'
 });
 
 app.register(productsRoutes, {
