@@ -1,8 +1,11 @@
 import fastify from 'fastify'
+import fastifyJwt from 'fastify-jwt'
+
 import { env } from './env'
+
 import { productsRoutes } from './routes/products'
 import { usersRoutes } from './routes/users'
-import fastifyJwt from 'fastify-jwt'
+import { cartRoutes } from './routes/cart'
 
 const app = fastify({
   logger: true
@@ -19,6 +22,9 @@ app.register(usersRoutes, {
 });
 app.register(productsRoutes, {
   prefix: 'products'
+});
+app.register(cartRoutes, {
+  prefix: 'cart'
 });
 
 // Inicializar servidor
