@@ -1,5 +1,6 @@
 import fastify from 'fastify'
 import fastifyJwt from 'fastify-jwt'
+import cookie from '@fastify/cookie'
 
 import { env } from './env'
 
@@ -10,6 +11,8 @@ import { cartRoutes } from './routes/cart'
 const app = fastify({
   logger: true
 });
+
+app.register(cookie)
 
 // Registar o plugin fastify-jwt
 app.register(fastifyJwt, {
