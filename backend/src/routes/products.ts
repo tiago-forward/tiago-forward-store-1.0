@@ -1,7 +1,7 @@
 import { FastifyInstance } from "fastify"
 import { z } from "zod"
 import crypto from 'node:crypto'
-import { knex } from "../database"
+import { knex } from "../database/database"
 
 export async function productsRoutes(app: FastifyInstance) {
     // Listar Produtos
