@@ -1,7 +1,9 @@
+import ServicesBanner from "./components/ServicesBanner";
+
 export default function Home() {
   return (
-    <div className="">
-      Home
-    </div>
+    <main className="">
+      <ServicesBanner />
+    </main>
   );
 }
