@@ -1,7 +1,9 @@
+import SectionTitle from "../SectionTitle";
+
 export default function NewArrivals() {
   return (
-    <div className="">
-      NewArrivals
-    </div>
+    <section className="w-full flex items-center justify-center">
+      <SectionTitle title="Novos Produtos" />
+    </section>
   );
 }

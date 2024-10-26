@@ -1,7 +1,9 @@
+import SectionTitle from "../SectionTitle";
+
 export default function Testimonials() {
   return (
-    <div className="">
-      Testimonials
-    </div>
+    <section className="w-full flex items-center justify-center">
+      <SectionTitle title="Avaliações" />
+    </section>
   );
 }

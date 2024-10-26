@@ -1,7 +1,9 @@
+import SectionTitle from "../SectionTitle";
+
 export default function Promotions() {
   return (
-    <div className="">
-      Promotions
-    </div>
+    <section className="w-full flex items-center justify-center">
+      <SectionTitle title="Promoções" />
+    </section>
   );
 }
