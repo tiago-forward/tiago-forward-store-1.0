@@ -8,22 +8,15 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import {
-  Menubar,
-  MenubarCheckboxItem,
-  MenubarContent,
-  MenubarItem,
-  MenubarMenu,
-  MenubarRadioGroup,
-  MenubarRadioItem,
-  MenubarSeparator,
-  MenubarShortcut,
-  MenubarSub,
-  MenubarSubContent,
-  MenubarSubTrigger,
-  MenubarTrigger,
-} from "@/components/ui/menubar"
-import Link from "next/link";
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu"
 
+import Link from "next/link";
 
 export default function Header() {
   return (
@@ -86,36 +79,46 @@ export default function Header() {
         </div>
       </div>
       <nav className="">
-        <Menubar className="w-full flex items-center justify-center gap-14 py-4 border-none">
-          <MenubarMenu>
-            <MenubarTrigger asChild>
-              <Link href="/" className="cursor-pointer">Home</Link>
-            </MenubarTrigger>
-          </MenubarMenu>
-          <MenubarMenu>
-            <MenubarTrigger className="cursor-pointer">
-              Categorias
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-chevron-down"><path d="m6 9 6 6 6-6" /></svg>
-            </MenubarTrigger>
-            <MenubarContent>
-              <MenubarSub>
-                <MenubarTrigger asChild>
-                  <Link href="/velas" className="cursor-pointer">Velas</Link>
-                </MenubarTrigger>
-              </MenubarSub>
-            </MenubarContent>
-          </MenubarMenu>
-          <MenubarMenu>
-            <MenubarTrigger asChild>
-              <Link href="/promocoes" className="cursor-pointer">Promoções</Link>
-            </MenubarTrigger>
-          </MenubarMenu>
-          <MenubarMenu>
-            <MenubarTrigger asChild>
-              <Link href="/lancamentos" className="cursor-pointer">Lançamentos</Link>
-            </MenubarTrigger>
-          </MenubarMenu>
-        </Menubar>
+        <NavigationMenu>
+          <NavigationMenuList className="w-full flex items-center justify-center gap-14 py-2">
+            <NavigationMenuItem>
+              <Link href="/" legacyBehavior passHref>
+                <NavigationMenuLink >
+                  Home
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="hover:bg-inherit">Components</NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[400px] gap-3 p-2 md:w-[500px] md:grid-cols-1 lg:w-[600px] ">
+                  <Link href="/velas" legacyBehavior passHref>
+                    <NavigationMenuLink className="hover:bg-pink-50 rounded-md p-2">
+                      Velas
+                    </NavigationMenuLink>
+                  </Link>
+                </ul>
+              </NavigationMenuContent>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <Link href="/promocoes" legacyBehavior passHref>
+                <NavigationMenuLink >
+                  Promoções
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <Link href="/lancamentos" legacyBehavior passHref>
+                <NavigationMenuLink >
+                  Lançamentos
+                </NavigationMenuLink>
+              </Link>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
       </nav>
     </header>
   );
