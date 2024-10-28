@@ -90,7 +90,7 @@ export default function Header() {
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="hover:bg-inherit">Components</NavigationMenuTrigger>
+              <NavigationMenuTrigger className="hover:bg-inherit">Categorias</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-2 md:w-[500px] md:grid-cols-1 lg:w-[600px] ">
                   <Link href="/velas" legacyBehavior passHref>
