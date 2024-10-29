@@ -20,15 +20,16 @@ export default function BestSellers() {
           className="w-full max-w-7xl"
         >
           <CarouselContent>
-            {Array.from({ length: 8 }).map((_, index) => (
+            {Array.from({ length: 5 }).map((_, index) => (
               <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/4">
                 <div className="flex aspect-square items-center justify-center p-6">
                   <ProductCard
                     title="Vela Aromática - Coco"
                     description="100mg"
-                    price="R$ 36,00"
-                    image="https://acdn.mitiendanube.com/stores/002/558/862/themes/amazonas/1-img-1283306244-1687816687-7d4cedfbef3cd2358d6eadf31dcea8ea1687816687-480-0.webp?912940183"
+                    price="36,00R$"
+                    image="https://acdn.mitiendanube.com/stores/003/041/278/products/img_1844-cebbc67340998874ee17264073753448-480-0.webp"
                     hoverImage="https://acdn.mitiendanube.com/stores/002/283/856/products/bambu-7b1ef426e8aa3ac6bc17279169922402-480-0.webp"
+                    discount="- 5%"
                   />
                 </div>
               </CarouselItem>

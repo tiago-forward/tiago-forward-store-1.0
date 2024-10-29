@@ -22,11 +22,46 @@ export const filterOptions = [
 ]
 
 export const productsDetails = [
-    { id: '1', title: 'Vela Aromática - Baunilha', weight: '100mg', price: '38,00R$', imagemUrl: 'https://acdn.mitiendanube.com/stores/003/041/278/products/img_1844-cebbc67340998874ee17264073753448-480-0.webp' },
-    { id: '2', title: 'Vela Aromática - Maracujá Azedo', weight: '100mg', price: '38,00R$', imagemUrl: 'https://acdn.mitiendanube.com/stores/003/041/278/products/img_1844-cebbc67340998874ee17264073753448-480-0.webp' },
-    { id: '3', title: 'Vela Aromática - Cereja Avelã', weight: '100mg', price: '38,00R$', imagemUrl: 'https://acdn.mitiendanube.com/stores/003/041/278/products/img_1844-cebbc67340998874ee17264073753448-480-0.webp' },
-    { id: '4', title: 'Vela Aromática - Flor de Cerejeira', weight: '100mg', price: '38,00R$', imagemUrl: 'https://acdn.mitiendanube.com/stores/003/041/278/products/img_1844-cebbc67340998874ee17264073753448-480-0.webp' },
-    { id: '5', title: 'Vela Aromática - Flor de Lótus', weight: '100mg', price: '38,00R$', imagemUrl: 'https://acdn.mitiendanube.com/stores/003/041/278/products/img_1844-cebbc67340998874ee17264073753448-480-0.webp' }
+    { 
+        id: '1', 
+        title: 'Vela Aromática - Baunilha', 
+        weight: '100mg', 
+        price: '38,00R$', 
+        imagemUrl: 'https://acdn.mitiendanube.com/stores/003/041/278/products/img_1844-cebbc67340998874ee17264073753448-480-0.webp',
+        discount: '- 5%',
+    },
+    { 
+        id: '2', 
+        title: 'Vela Aromática - Maracujá Azedo', 
+        weight: '100mg', 
+        price: '38,00R$', 
+        imagemUrl: 'https://acdn.mitiendanube.com/stores/003/041/278/products/img_1844-cebbc67340998874ee17264073753448-480-0.webp',
+        discount: '- 5%',
+    },
+    { 
+        id: '3', 
+        title: 'Vela Aromática - Cereja Avelã', 
+        weight: '100mg', 
+        price: '38,00R$', 
+        imagemUrl: 'https://acdn.mitiendanube.com/stores/003/041/278/products/img_1844-cebbc67340998874ee17264073753448-480-0.webp',
+        discount: '- 5%',
+    },
+    { 
+        id: '4', 
+        title: 'Vela Aromática - Flor de Cerejeira', 
+        weight: '100mg', 
+        price: '38,00R$', 
+        imagemUrl: 'https://acdn.mitiendanube.com/stores/003/041/278/products/img_1844-cebbc67340998874ee17264073753448-480-0.webp',
+        discount: '- 5%',
+    },
+    { 
+        id: '5', 
+        title: 'Vela Aromática - Flor de Lótus', 
+        weight: '100mg', 
+        price: '38,00R$', 
+        imagemUrl: 'https://acdn.mitiendanube.com/stores/003/041/278/products/img_1844-cebbc67340998874ee17264073753448-480-0.webp',
+        discount: '- 5%',
+    },
 ]
 
 export const navLinks = [

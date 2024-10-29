@@ -24,6 +24,10 @@ import { productsDetails } from "@/constants"
 import { filterOptions } from "@/constants"
 
 export default function Velas() {
+    async function handleAddProductToCart() {
+        console.log("teste")
+    }
+
     return (
         <main className="flex flex-col m-auto justify-center p-4">
             <header className="w-full max-w-7xl m-auto">
@@ -89,10 +93,10 @@ export default function Velas() {
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <strong className="text-pink-600 font-extrabold text-2xl">{product.price}</strong>
-                                    <span className="text-pink-600 text-xs border rounded-md bg-pink-200 px-1">- 5% OFF</span>
+                                    <span className="text-pink-600 text-xs border rounded-md bg-pink-200 px-1">{product.discount} OFF</span>
                                 </div>
 
-                                <form>
+                                <form action={handleAddProductToCart}>
                                     <BuyButton name="Comprar" />
                                 </form>
                             </div>
