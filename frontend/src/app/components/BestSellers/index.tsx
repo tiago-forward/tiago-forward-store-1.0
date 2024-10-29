@@ -1,5 +1,5 @@
 import ProductCard from "../ProductCard";
-import SectionTitle from "../SectionTitle";
+import SectionTitleHome from "../Titles/SectionTitleHome";
 import {
   Carousel,
   CarouselContent,
@@ -11,7 +11,7 @@ import {
 export default function BestSellers() {
   return (
     <section className="w-full flex flex-col items-center justify-center">
-      <SectionTitle title="Mais Vendidos" />
+      <SectionTitleHome title="Mais Vendidos" />
       <div className="mb-8">
         <Carousel
           opts={{

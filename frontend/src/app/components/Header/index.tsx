@@ -21,14 +21,14 @@ import Link from "next/link";
 export default function Header() {
   return (
     <header className="flex flex-col items-center border-b-2">
-      <div className="max-w-7xl flex items-center gap-4 py-4">
+      <div className="max-w-7xl flex items-center justify-between w-full gap-4 py-4">
         <div className="flex flex-col items-center">
           <span className="text-xl font-bold">Tiago Forward</span>
           <span>Criações aromáticas</span>
         </div>
-        <div>
-          <form action="" className="flex border-2 rounded-md">
-            <input type="search" id="seacth" placeholder="Buscar produtos" className="outline-none rounded-tl-md rounded-bl-md pl-2" />
+        <div className="flex-1">
+          <form action="" className="flex justify-between border-2 rounded-md">
+            <input type="search" id="seacth" placeholder="Buscar produtos" className="outline-none rounded-tl-md rounded-bl-md pl-2 w-full" />
             <button type="submit" className="bg-white outline-none p-2 rounded-tr-md rounded-br-md">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" className="lucide lucide-search"><circle cx="11" cy="11" r="8" /><path d="m21 21-4.3-4.3" /></svg>
             </button>
@@ -82,10 +82,8 @@ export default function Header() {
         <NavigationMenu>
           <NavigationMenuList className="w-full flex items-center justify-center gap-14 py-2">
             <NavigationMenuItem>
-              <Link href="/" legacyBehavior passHref>
-                <NavigationMenuLink >
-                  Home
-                </NavigationMenuLink>
+              <Link href="/">
+                Home
               </Link>
             </NavigationMenuItem>
 
@@ -93,28 +91,22 @@ export default function Header() {
               <NavigationMenuTrigger className="hover:bg-inherit">Categorias</NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-2 md:w-[500px] md:grid-cols-1 lg:w-[600px] ">
-                  <Link href="/velas" legacyBehavior passHref>
-                    <NavigationMenuLink className="hover:bg-pink-50 rounded-md p-2">
-                      Velas
-                    </NavigationMenuLink>
+                  <Link href="/velas" className="hover:bg-pink-50 rounded-md p-2">
+                    Velas
                   </Link>
                 </ul>
               </NavigationMenuContent>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <Link href="/promocoes" legacyBehavior passHref>
-                <NavigationMenuLink >
-                  Promoções
-                </NavigationMenuLink>
+              <Link href="/promocoes">
+                Promoções
               </Link>
             </NavigationMenuItem>
 
             <NavigationMenuItem>
-              <Link href="/lancamentos" legacyBehavior passHref>
-                <NavigationMenuLink >
-                  Lançamentos
-                </NavigationMenuLink>
+              <Link href="/lancamentos">
+                Lançamentos
               </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
