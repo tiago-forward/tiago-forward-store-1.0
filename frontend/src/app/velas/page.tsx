@@ -1,8 +1,5 @@
 "use client"
 
-import { useState } from "react"
-import { ChevronsUpDown, Check } from 'lucide-react'
-
 import {
     Breadcrumb,
     BreadcrumbItem,
@@ -11,19 +8,15 @@ import {
     BreadcrumbPage,
     BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
-import { Button } from "@/components/ui/button"
 import {
-    Command,
-    CommandEmpty,
-    CommandGroup,
-    CommandItem,
-    CommandList,
-} from "@/components/ui/command"
-import {
-    Popover,
-    PopoverContent,
-    PopoverTrigger,
-} from "@/components/ui/popover"
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
 
 import { BuyButton } from '../components/ProductCard/components/Button'
 import SectionTitleCategory from '../components/Titles/SectionTitleCategory'
@@ -32,9 +25,6 @@ import { productsDetails } from "@/constants"
 import { filterOptions } from "@/constants"
 
 export default function Velas() {
-    const [open, setOpen] = useState(false)
-    const [value, setValue] = useState("mais-vendidos")
-
     return (
         <main className="flex flex-col m-auto justify-center p-4">
             <header className="w-full max-w-7xl m-auto">
@@ -53,47 +43,20 @@ export default function Velas() {
                     </Breadcrumb>
                     <div className="flex items-center">
                         <span className="w-32">Ordenado por:</span>
-                        <Popover open={open} onOpenChange={setOpen}>
-                            <PopoverTrigger asChild>
-                                <Button
-                                    variant="outline"
-                                    role="combobox"
-                                    aria-expanded={open}
-                                    className="w-[210px] justify-between"
-                                >
-                                    {/* Exibe o rótulo do valor atual selecionado */}
-                                    {filterOptions.find((option) => option.value === value)?.label || "Selecione..."}
-                                    <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                                </Button>
-                            </PopoverTrigger>
-                            <PopoverContent className="w-[210px] p-0">
-                                <Command>
-                                    <CommandList>
-                                        <CommandEmpty>Nenhum item encontrado.</CommandEmpty>
-                                        <CommandGroup>
-                                            {filterOptions.map((option) => (
-                                                <CommandItem
-                                                    key={option.value}
-                                                    value={option.value}
-                                                    onSelect={(currentValue) => {
-                                                        setValue(currentValue === value ? "" : currentValue);
-                                                        setOpen(false);
-                                                    }}
-                                                >
-                                                    {/* Indicador de seleção */}
-                                                    <Check
-                                                        className={
-                                                            value === option.value ? "mr-2 h-4 w-4 opacity-100" : "mr-2 h-4 w-4 opacity-0"
-                                                        }
-                                                    />
-                                                    {option.label}
-                                                </CommandItem>
-                                            ))}
-                                        </CommandGroup>
-                                    </CommandList>
-                                </Command>
-                            </PopoverContent>
-                        </Popover>
+                        <Select defaultValue="mais-vendidos">
+                            <SelectTrigger className="w-[200px]">
+                                <SelectValue placeholder="Mais vendidos" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectGroup>
+                                    {filterOptions.map((option) => (
+                                        <SelectItem key={option.value} value={option.value}>
+                                            {option.label}
+                                        </SelectItem>
+                                    ))}
+                                </SelectGroup>
+                            </SelectContent>
+                        </Select>
                     </div>
                 </div>
             </header>
