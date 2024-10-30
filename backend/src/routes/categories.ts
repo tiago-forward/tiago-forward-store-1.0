@@ -36,4 +36,24 @@ export async function categoriesRoutes(app: FastifyInstance) {
             return reply.status(500).send({ error: 'Failed to create category' });
         }
     })
+
+    // Lista produtos de uma categoria
+    app.get('/:category_id/products', async (request, reply) => {
+        const schema = z.object({
+            category_id: z.string().uuid(),
+        })
+
+        const { category_id } = schema.parse(request.params)
+
+        try {
+            const products = await knex('products')
+                .join('product_categories', 'products.id', 'product_categories.product_id')
+                .where('product_categories.category_id', category_id)
+                .select('products.id', 'products.title', 'products.description', 'products.price', 'products.image_url')
+
+            return reply.status(200).send({ products })
+        } catch (error) {
+            return reply.status(500).send({ error: 'Failed to fetch products for category' })
+        }
+    })
 }

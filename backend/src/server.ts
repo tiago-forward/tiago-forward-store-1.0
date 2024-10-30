@@ -8,6 +8,7 @@ import { productsRoutes } from './routes/products'
 import { usersRoutes } from './routes/users'
 import { cartRoutes } from './routes/cart'
 import { categoriesRoutes } from './routes/categories'
+import { productCategoriesRoutes } from './routes/productCategories'
 
 const app = fastify({
   logger: true
@@ -32,6 +33,9 @@ app.register(cartRoutes, {
 });
 app.register(categoriesRoutes, {
   prefix: 'categories'
+})
+app.register(productCategoriesRoutes, {
+  prefix: 'product-categories'
 });
 
 // Inicializar servidor
