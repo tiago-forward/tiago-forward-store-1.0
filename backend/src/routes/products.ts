@@ -43,10 +43,12 @@ export async function productsRoutes(app: FastifyInstance) {
             description: z.string(),
             price: z.number(),
             stock_quantity: z.number(),
+            discount: z.number().optional(),
             image_url: z.string(),
+            category_id: z.string()
         })
 
-        const { title, description, price, stock_quantity, image_url } = createProductBodySchema.parse(request.body)
+        const { title, description, price, stock_quantity, discount, image_url, category_id } = createProductBodySchema.parse(request.body)
 
         try {
             const product = await knex('products').insert({
@@ -55,7 +57,9 @@ export async function productsRoutes(app: FastifyInstance) {
                 description,
                 price,
                 stock_quantity,
+                discount,
                 image_url,
+                category_id,
             })
 
             return reply.status(201).send(product)
@@ -94,12 +98,14 @@ export async function productsRoutes(app: FastifyInstance) {
             description: z.string().optional(),
             price: z.number().optional(),
             stock_quantity: z.number().optional(),
-            image_url: z.string().optional()
+            discount: z.number().optional(),
+            image_url: z.string().optional(),
+            category_id: z.string().optional()
         })
 
         const { product_id } = updateProductParamsSchema.parse(request.params)
 
-        const { title, description, price, stock_quantity, image_url } = updateProductBodySchema.parse(request.body)
+        const { title, description, price, stock_quantity, discount, image_url, category_id } = updateProductBodySchema.parse(request.body)
 
         try {
             const product = await knex('products').where('id', product_id).update({
@@ -107,7 +113,9 @@ export async function productsRoutes(app: FastifyInstance) {
                 description,
                 price,
                 stock_quantity,
+                discount,
                 image_url,
+                category_id,
             })
 
             return reply.status(200).send({

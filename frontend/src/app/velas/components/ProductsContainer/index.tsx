@@ -11,6 +11,7 @@ export default function ProductsContainer({ products }: Props) {
   async function handleAddProductToCart() {
     console.log("Produto adicionado ao carrinho!")
   }
+  console.log(products)
 
   return (
     <div className="max-w-7xl flex flex-col md:flex-row m-auto">
@@ -37,12 +38,22 @@ export default function ProductsContainer({ products }: Props) {
             <div>
               <a href={`/product:${product.id}`} className="hover:opacity-60">
                 <h3 className="font-medium">{product.title}</h3>
-                <p className="text-neutral-700">weight</p>
+                <p className="text-neutral-700">{product.description}</p>
               </a>
             </div>
             <div className="flex items-center gap-2">
-              <strong className="text-pink-600 font-extrabold text-2xl">{product.price}</strong>
-              <span className="text-pink-600 text-xs border rounded-md bg-pink-200 px-1">discount OFF</span>
+              {
+                product.discount === null
+                  ? (
+                    <strong className="font-extrabold text-2xl">{product.price}R$</strong>
+                  )
+                  : (
+                    <strong className="text-pink-600 font-extrabold text-2xl">{product.price}R$</strong>
+                  )
+              }
+              {product.discount === null ? null : (
+                <span className="text-pink-600 text-xs border rounded-md bg-pink-200 px-1">{product.discount}% OFF</span>
+              )}
             </div>
 
             <form action={handleAddProductToCart}>
@@ -51,6 +62,6 @@ export default function ProductsContainer({ products }: Props) {
           </div>
         ))}
       </div>
-    </div>
+    </div >
   );
 }

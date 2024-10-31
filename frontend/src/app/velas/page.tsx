@@ -5,7 +5,7 @@ import { fetchProductsByCategory } from "@/services/apiRequests";
 
 export default async function Velas() {
     try {
-        const categoryId = "e7ee220e-4c13-4660-9026-3d19573e085b";
+        const categoryId = "b0e01976-bb75-41da-afc2-5e50c1246a49";
         const products = await fetchProductsByCategory(categoryId);
 
         return <ProductsContainer products={products} />;

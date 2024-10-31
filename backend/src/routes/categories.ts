@@ -38,7 +38,7 @@ export async function categoriesRoutes(app: FastifyInstance) {
     })
 
     // Lista produtos de uma categoria
-    app.get('/:category_id/products', async (request, reply) => {
+    app.get('/products/:category_id', async (request, reply) => {
         const schema = z.object({
             category_id: z.string().uuid(),
         })
@@ -47,9 +47,9 @@ export async function categoriesRoutes(app: FastifyInstance) {
 
         try {
             const products = await knex('products')
-                .join('product_categories', 'products.id', 'product_categories.product_id')
-                .where('product_categories.category_id', category_id)
-                .select('products.id', 'products.title', 'products.description', 'products.price', 'products.image_url')
+                .join('categories', 'products.category_id', '=', 'categories.id')
+                .where('products.category_id', category_id)
+                .select('products.id', 'products.title', 'products.description', 'products.price', 'products.image_url', 'products.discount', 'categories.name as category_name')
 
             return reply.status(200).send({ products })
         } catch (error) {

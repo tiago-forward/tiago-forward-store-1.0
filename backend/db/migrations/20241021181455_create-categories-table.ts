@@ -1,3 +1,4 @@
+// Atualizado - falta autenticação
 import type { Knex } from "knex";
 // Classificação de produtos por categorias (como diferentes tipos de velas).
 export async function up(knex: Knex): Promise<void> {

@@ -9,9 +9,11 @@ declare module 'knex/types/tables' {
             description: string
             price: number
             stock_quantity: number
+            discount: number
             image_url: string
             created_at: string
             updated_at: string
+            category_id: string
         }
         orders
         order_items
