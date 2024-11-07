@@ -11,7 +11,6 @@ export default function ProductsContainer({ products }: Props) {
   async function handleAddProductToCart() {
     console.log("Produto adicionado ao carrinho!")
   }
-  console.log(products)
 
   return (
     <div className="max-w-7xl flex flex-col md:flex-row m-auto">
@@ -22,7 +21,7 @@ export default function ProductsContainer({ products }: Props) {
         {products.map((product) => (
           <div key={product.id} className="flex flex-col">
             <div className="overflow-hidden relative aspect-square">
-              <a href={`/product:${product.id}`}>
+              <a href={`/product/${product.id}`}>
                 <img
                   src={product.image_url}
                   alt={product.title}
@@ -36,7 +35,7 @@ export default function ProductsContainer({ products }: Props) {
               </a>
             </div>
             <div>
-              <a href={`/product:${product.id}`} className="hover:opacity-60">
+              <a href={`/product/${product.id}`} className="hover:opacity-60">
                 <h3 className="font-medium">{product.title}</h3>
                 <p className="text-neutral-700">{product.description}</p>
               </a>

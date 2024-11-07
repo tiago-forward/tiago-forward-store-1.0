@@ -1,5 +1,5 @@
 import { api } from "@/services/api"
-import { ProductByCategory } from "@/lib/productByCategory.type"
+import { ProductByCategory, ProductDetails } from "@/lib/productByCategory.type"
 
 export async function fetchProductsByCategory(categoryId: string): Promise<ProductByCategory[] | []> {
     try {
@@ -8,5 +8,15 @@ export async function fetchProductsByCategory(categoryId: string): Promise<Produ
     } catch (error) {
         console.error("Erro ao buscar produtos:", error)
         return []
+    }
+}
+
+export async function fetchProductDetails(productId: string): Promise<ProductDetails | null> {
+    try {
+        const response = await api.get(`/products/${productId}`)
+        return response.data.product || null
+    } catch (error) {
+        console.error("Erro ao buscar detalhes do produto:", error)
+        return null
     }
 }
