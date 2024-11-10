@@ -8,6 +8,8 @@ import ProductDescription from './components/ProductDescription';
 
 import VelaTiagoForward from "@/assets/Vela Tiago Forward.jpg"
 import Image from "next/image";
+import { fetchAddToCart } from '@/services/apiRequests';
+import { useCart } from '@/contexts/CartContext';
 
 interface ProductDetailsProps {
   product: ProductDetailsType
@@ -15,6 +17,8 @@ interface ProductDetailsProps {
 
 export default function ProductDetails({ product }: ProductDetailsProps) {
   const [quantity, setQuantity] = useState(1)
+
+  const { addToCart } = useCart()
 
   const handleIncrease = () => {
     setQuantity((prev) => (prev < product.stock_quantity ? prev + 1 : prev));
@@ -35,6 +39,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
 
   async function handleAddProductToCart() {
     console.log("AddToCart")
+    addToCart(product.id, quantity)
   }
 
   return (

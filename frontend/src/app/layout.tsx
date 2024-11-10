@@ -5,6 +5,7 @@ import "../styles/variables.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NotificationBanner from "./components/NotificationBanner";
+import { CartProvider } from "@/contexts/CartContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,10 +24,12 @@ export default function RootLayout({
       <body
         className={`${inter.className} antialiased`}
       >
-        <NotificationBanner />
-        <Header />
-        {children}
-        <Footer />
+        <CartProvider>
+          <NotificationBanner />
+          <Header />
+          {children}
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

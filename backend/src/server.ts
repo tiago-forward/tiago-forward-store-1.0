@@ -1,6 +1,7 @@
 import fastify from 'fastify'
 import fastifyJwt from 'fastify-jwt'
 import cookie from '@fastify/cookie'
+import { fastifyCors } from '@fastify/cors'
 
 import { env } from './env'
 
@@ -13,6 +14,12 @@ import { productCategoriesRoutes } from './routes/productCategories'
 const app = fastify({
   logger: true
 });
+
+// Register de configuração de qual domínio tem acesso as requisições no backend
+app.register(fastifyCors, {
+  origin: "http://localhost:3000",
+  credentials: true,
+})
 
 app.register(cookie)
 

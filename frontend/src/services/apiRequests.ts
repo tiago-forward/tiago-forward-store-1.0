@@ -20,3 +20,28 @@ export async function fetchProductDetails(productId: string): Promise<ProductDet
         return null
     }
 }
+
+export async function fetchAddToCart(productId: string, quantity: number) {
+    try {
+        const response = await api.post(`/cart/add`, {
+            product_id: productId,
+            quantity: quantity
+        })
+        console.log('Produto adicionado ao carrinho:', response.data)
+    } catch (error) {
+        console.log("Erro ao adicionar produto ao carrinho:", error)
+    }
+}
+
+export async function fetchListCart() {
+    try {
+        // Faz o GET na rota do carrinho, garantindo que cookies como `session_id` sejam enviados
+        const response = await api.get('/cart')
+
+        // Retorna os itens do carrinho e o total do backend
+        return response.data
+    } catch (error) {
+        console.error("Erro ao buscar itens do carrinho:", error)
+        return null
+    }
+}
