@@ -3,6 +3,9 @@
 import { BuyButton } from "@/app/components/ProductCard/components/Button";
 import { ProductByCategory } from "@/lib/productByCategory.type";
 
+import VelaTiagoForward from "@/assets/Vela Tiago Forward.jpg"
+import Image from "next/image";
+
 interface Props {
   products: ProductByCategory[]
 }
@@ -22,16 +25,8 @@ export default function ProductsContainer({ products }: Props) {
           <div key={product.id} className="flex flex-col">
             <div className="overflow-hidden relative aspect-square">
               <a href={`/product/${product.id}`}>
-                <img
-                  src={product.image_url}
-                  alt={product.title}
-                  className="transition-opacity duration-300 ease-in-out hover:opacity-0 w-full h-auto"
-                />
-                <img
-                  src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_800/https://oliveiravelas.com/wp-content/uploads/2021/11/vela-aromatica-de-cereja-e-avela-acesa-decoracao.jpg"
-                  alt={product.title}
-                  className="absolute top-0 left-0 transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 w-full h-auto"
-                />
+                <Image src={VelaTiagoForward} alt={product.title} className="transition-opacity duration-300 ease-in-out hover:opacity-0 w-full h-auto" />
+                <Image src={VelaTiagoForward} alt={product.title} className="absolute top-0 left-0 transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 w-full h-auto" />
               </a>
             </div>
             <div>

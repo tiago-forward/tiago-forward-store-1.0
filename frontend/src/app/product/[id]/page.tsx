@@ -6,6 +6,9 @@ import { ProductDetails as ProductDetailsType } from '@/lib/productByCategory.ty
 import { useState } from 'react';
 import ProductDescription from './components/ProductDescription';
 
+import VelaTiagoForward from "@/assets/Vela Tiago Forward.jpg"
+import Image from "next/image";
+
 interface ProductDetailsProps {
   product: ProductDetailsType
 }
@@ -39,16 +42,8 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
       <div className="max-w-7xl px-2">
         <section className='grid grid-cols-12 gap-4'>
           <div className="col-span-6 overflow-hidden relative aspect-square w-full">
-            <img
-              src={product.image_url}
-              alt={product.title}
-              className="transition-opacity duration-300 ease-in-out hover:opacity-0 w-full h-auto"
-            />
-            <img
-              src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_800/https://oliveiravelas.com/wp-content/uploads/2021/11/vela-aromatica-de-cereja-e-avela-acesa-decoracao.jpg"
-              alt={product.title}
-              className="absolute top-0 left-0 transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 w-full h-auto"
-            />
+            <Image src={VelaTiagoForward} alt={product.title} className="transition-opacity duration-300 ease-in-out hover:opacity-0 w-full h-auto" />
+            <Image src={VelaTiagoForward} alt={product.title} className="absolute top-0 left-0 transition-opacity duration-300 ease-in-out opacity-0 hover:opacity-100 w-full h-auto" />
           </div>
           <div className='col-span-6 flex flex-col gap-6'>
             <SectionTitleProduct title={product.title} />
