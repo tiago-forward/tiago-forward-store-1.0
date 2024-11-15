@@ -1,11 +1,11 @@
 "use server"
 
-import ProductsContainer from "./components/ProductsContainer";
-import { fetchProductsByCategory } from "@/services/apiRequests";
+import ProductsContainer from "./components/ProductsContainer"
+import { fetchProductsByCategory } from "@/services/apiRequests"
 
 export default async function Sabonetes() {
     try {
-        const categoryId = "b0e01976-bb75-41da-afc2-5e50c1246a49";
+        const categoryId = "2388c6f0-332f-4e74-ae85-55551bbd5e06";
         const products = await fetchProductsByCategory(categoryId);
 
         return <ProductsContainer products={products} />;

@@ -1,4 +1,3 @@
-import { Key } from "react";
 import ProductCard from "../ProductCard";
 import SectionTitleHome from "../Titles/SectionTitleHome";
 import {
@@ -14,7 +13,6 @@ import { ProductDetails } from "@/lib/productProps.type";
 
 export default async function NewArrivals() {
   const recentProducts = await fetchRecentProducts()
-  console.log(recentProducts)
 
   return (
     <section className="w-full flex flex-col items-center justify-center">

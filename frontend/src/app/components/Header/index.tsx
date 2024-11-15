@@ -93,20 +93,11 @@ export default function Header() {
                   <Link href="/velas" className="hover:bg-pink-50 rounded-md p-2">
                     Velas
                   </Link>
+                  <Link href="/sabonetes" className="hover:bg-pink-50 rounded-md p-2">
+                    Sabonetes
+                  </Link>
                 </ul>
               </NavigationMenuContent>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <Link href="/promocoes">
-                Promoções
-              </Link>
-            </NavigationMenuItem>
-
-            <NavigationMenuItem>
-              <Link href="/lancamentos">
-                Lançamentos
-              </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
