@@ -2,7 +2,7 @@
 
 import { BuyButton } from '@/app/components/ProductCard/components/Button';
 import SectionTitleProduct from '@/app/components/Titles/SectionTitleProduct';
-import { ProductDetails as ProductDetailsType } from '@/lib/productByCategory.type';
+import { ProductDetails as ProductDetailsType } from '@/lib/productProps.type';
 import { useState } from 'react';
 import ProductDescription from './components/ProductDescription';
 

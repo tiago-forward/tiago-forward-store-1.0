@@ -1,5 +1,5 @@
 import { api } from "@/services/api"
-import { ProductByCategory, ProductDetails } from "@/lib/productByCategory.type"
+import { ProductByCategory, ProductDetails } from "@/lib/productProps.type"
 
 export async function fetchProductsByCategory(categoryId: string): Promise<ProductByCategory[] | []> {
     try {
@@ -7,6 +7,16 @@ export async function fetchProductsByCategory(categoryId: string): Promise<Produ
         return response.data.products || []
     } catch (error) {
         console.error("Erro ao buscar produtos:", error)
+        return []
+    }
+}
+
+export async function fetchRecentProducts() {
+    try {
+        const response = await api.get('/products/recent');
+        return response.data.products || []
+    } catch (error) {
+        console.error("Erro ao buscar produtos recentes:", error);
         return []
     }
 }

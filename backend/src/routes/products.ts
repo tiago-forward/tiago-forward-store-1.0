@@ -17,6 +17,22 @@ export async function productsRoutes(app: FastifyInstance) {
         }
     })
 
+    // Listar Produtos Recentes
+    app.get('/recent', async function handler(request, reply) {
+        try {
+            const recentProducts = await knex('products')
+            .select('id', 'title', 'description', 'price', 'discount', 'image_url', 'created_at')
+            .orderBy('created_at', 'desc')
+            .limit(8)
+
+            return reply.status(200).send({
+                products: recentProducts
+            })
+        } catch (error) {
+            return reply.status(500).send({ error: 'Failed to fetch recent products' })
+        }
+    })
+
     // Buscar Produto por ID
     app.get('/:product_id', async function handler(request, reply) {
         const getProductParamsSchema = z.object({

@@ -1,7 +1,7 @@
 "use client"
 
 import { BuyButton } from "@/app/components/ProductCard/components/Button";
-import { ProductByCategory } from "@/lib/productByCategory.type";
+import { ProductByCategory } from "@/lib/productProps.type";
 
 import VelaTiagoForward from "@/assets/Vela Tiago Forward.jpg"
 import Image from "next/image";

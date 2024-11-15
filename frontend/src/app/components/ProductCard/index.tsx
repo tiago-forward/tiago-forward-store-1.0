@@ -6,7 +6,7 @@ interface ProductcardProps {
   price: string
   image: string
   hoverImage: string
-  discount: string
+  discount: number
 }
 
 import VelaTiagoForward from "@/assets/Vela Tiago Forward.jpg"
@@ -33,10 +33,21 @@ export default function ProductCard({ title, description, price, image, hoverIma
         </a>
       </div>
       <div className="flex items-center gap-2">
-        <strong className="text-pink-600 font-extrabold text-2xl">{price}</strong>
-        <span className="text-pink-600 text-xs border rounded-md bg-pink-200 px-1">{discount} OFF</span>
+        {
+          discount >= 1
+            ? (
+              <>
+                <strong className="text-pink-600 font-extrabold text-2xl">R$ {price}</strong>
+                <span className="text-pink-600 text-xs border rounded-md bg-pink-200 px-1">{discount} OFF</span>
+              </>
+            )
+            : (
+              <>
+                <strong className="font-extrabold text-2xl">R$ {price}</strong>
+              </>
+            )
+        }
       </div>
-
       <form action={handleAddProductToCart}>
         <BuyButton name="Comprar" />
       </form>
