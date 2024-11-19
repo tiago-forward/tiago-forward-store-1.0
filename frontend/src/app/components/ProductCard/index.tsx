@@ -3,16 +3,19 @@ import { BuyButton } from "./components/Button"
 interface ProductcardProps {
   title: string
   description: string
-  price: string
+  price: number
   image: string
   hoverImage: string
   discount: number
 }
 
 import VelaTiagoForward from "@/assets/Vela Tiago Forward.jpg"
+import { FormatCurrency } from "@/utils/formatCurrency"
 import Image from "next/image";
 
 export default function ProductCard({ title, description, price, image, hoverImage, discount }: ProductcardProps) {
+  const formatPriceValue = FormatCurrency(price)
+  
   async function handleAddProductToCart() {
     "use server"
     console.log("teste")
@@ -37,13 +40,13 @@ export default function ProductCard({ title, description, price, image, hoverIma
           discount >= 1
             ? (
               <>
-                <strong className="text-pink-600 font-extrabold text-2xl">R$ {price}</strong>
+                <strong className="text-pink-600 font-extrabold text-2xl">{formatPriceValue}</strong>
                 <span className="text-pink-600 text-xs border rounded-md bg-pink-200 px-1">{discount} OFF</span>
               </>
             )
             : (
               <>
-                <strong className="font-extrabold text-2xl">R$ {price}</strong>
+                <strong className="font-extrabold text-2xl">{formatPriceValue}</strong>
               </>
             )
         }

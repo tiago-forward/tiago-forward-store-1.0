@@ -5,12 +5,15 @@ import { ProductByCategory } from "@/lib/productProps.type";
 
 import VelaTiagoForward from "@/assets/Vela Tiago Forward.jpg"
 import Image from "next/image";
+import { FormatCurrency } from "@/utils/formatCurrency";
 
 interface Props {
   products: ProductByCategory[]
 }
 
 export default function ProductsContainer({ products }: Props) {
+  // const formatPriceValue = FormatCurrency(products)
+
   async function handleAddProductToCart() {
     console.log("Produto adicionado ao carrinho!")
   }
@@ -39,17 +42,20 @@ export default function ProductsContainer({ products }: Props) {
               {
                 product.discount === null
                   ? (
-                    <strong className="font-extrabold text-2xl">{product.price}R$</strong>
+                    <strong className="font-extrabold text-2xl">
+                      {FormatCurrency(product.price)}
+                    </strong>
                   )
                   : (
-                    <strong className="text-pink-600 font-extrabold text-2xl">{product.price}R$</strong>
+                    <strong className="text-pink-600 font-extrabold text-2xl">
+                      {FormatCurrency(product.price)}
+                    </strong>
                   )
               }
               {product.discount === null ? null : (
                 <span className="text-pink-600 text-xs border rounded-md bg-pink-200 px-1">{product.discount}% OFF</span>
               )}
             </div>
-
             <form action={handleAddProductToCart}>
               <BuyButton name="Comprar" />
             </form>

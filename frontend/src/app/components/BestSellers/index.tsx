@@ -26,10 +26,10 @@ export default function BestSellers() {
                   <ProductCard
                     title="Vela Aromática - Coco"
                     description="100mg"
-                    price="36,00R$"
+                    price={38}
                     image="https://acdn.mitiendanube.com/stores/003/041/278/products/img_1844-cebbc67340998874ee17264073753448-480-0.webp"
                     hoverImage="https://acdn.mitiendanube.com/stores/002/283/856/products/bambu-7b1ef426e8aa3ac6bc17279169922402-480-0.webp"
-                    discount="- 5%"
+                    discount={5}
                   />
                 </div>
               </CarouselItem>

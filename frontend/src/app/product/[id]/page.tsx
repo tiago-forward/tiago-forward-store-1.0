@@ -10,6 +10,7 @@ import VelaTiagoForward from "@/assets/Vela Tiago Forward.jpg"
 import Image from "next/image";
 import { fetchAddToCart } from '@/services/apiRequests';
 import { useCart } from '@/contexts/CartContext';
+import { FormatCurrency } from '@/utils/formatCurrency';
 
 interface ProductDetailsProps {
   product: ProductDetailsType
@@ -56,10 +57,14 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
               {
                 product.discount === null
                   ? (
-                    <strong className="font-extrabold text-2xl">R$ {product.price},00</strong>
+                    <strong className="font-extrabold text-2xl">
+                      {FormatCurrency(product.price)}
+                    </strong>
                   )
                   : (
-                    <strong className="text-pink-600 font-extrabold text-2xl">{product.price}R$</strong>
+                    <strong className="text-pink-600 font-extrabold text-2xl">
+                      {FormatCurrency(product.price)}
+                    </strong>
                   )
               }
               {product.discount === null ? null : (
@@ -72,7 +77,7 @@ export default function ProductDetails({ product }: ProductDetailsProps) {
             <div>
               <span>3</span>
               <span> x de </span>
-              <span>R$12,66</span>
+              <span>R$ 12,66</span>
               <span> sem juros</span>
             </div>
             <div className='flex items-center gap-4'>

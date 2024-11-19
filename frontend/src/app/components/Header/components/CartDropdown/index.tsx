@@ -5,6 +5,7 @@ import { useCart } from "@/contexts/CartContext";
 import { DropdownMenu, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useEffect, useState } from "react";
 import CartDrawer from "../CartDrawer";
+import { FormatCurrency } from "@/utils/formatCurrency";
 
 export default function CartDropdown() {
   const { itemCount, cartTotal, updateCartItems } = useCart()
@@ -27,7 +28,9 @@ export default function CartDropdown() {
           </svg>
           <div className="flex flex-col">
             <span className="text-sm">Carrinho ({itemCount})</span>
-            <strong className="text-md">{cartTotal.toFixed(2)} R$</strong>
+            <strong className="text-md">
+              {FormatCurrency(cartTotal)}
+            </strong>
           </div>
         </DropdownMenuTrigger>
       </DropdownMenu>

@@ -5,6 +5,7 @@ import { ProductByCategory } from "@/lib/productProps.type";
 
 import SaboneteTiagoForward from "@/assets/Sabonete Tiago Forward.jpg"
 import Image from "next/image";
+import { FormatCurrency } from "@/utils/formatCurrency";
 
 interface Props {
   products: ProductByCategory[]
@@ -39,10 +40,14 @@ export default function ProductsContainer({ products }: Props) {
               {
                 product.discount === null
                   ? (
-                    <strong className="font-extrabold text-2xl">{product.price}R$</strong>
+                    <strong className="font-extrabold text-2xl">
+                      {FormatCurrency(product.price)}
+                    </strong>
                   )
                   : (
-                    <strong className="text-pink-600 font-extrabold text-2xl">{product.price}R$</strong>
+                    <strong className="text-pink-600 font-extrabold text-2xl">
+                      {FormatCurrency(product.price)}
+                    </strong>
                   )
               }
               {product.discount === null ? null : (

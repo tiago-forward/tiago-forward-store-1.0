@@ -1,6 +1,7 @@
 "use client"
 
 import { useCart } from "@/contexts/CartContext"
+import { FormatCurrency } from "@/utils/formatCurrency";
 import { MoveLeft, X } from 'lucide-react';
 
 interface CartDrawerProps {
@@ -38,7 +39,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 <div className="flex-1">
                   <p className="font-medium">{item.title}</p>
                   <p className="text-gray-600 text-sm">Quantidade: {item.quantity}</p>
-                  <p className="text-gray-600 text-sm">Preço: R${item.price.toFixed(2)}
+                  <p className="text-gray-600 text-sm">Preço: {FormatCurrency(item.price)}
                   </p>
                 </div>
               </div>
@@ -50,7 +51,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
         <div className="p-4 border-t">
           <div className="flex justify-between mb-4">
             <span className="font-medium">Total:</span>
-            <span className="font-semibold">R$ {cartTotal.toFixed(2)}</span>
+            <span className="font-semibold">
+              {FormatCurrency(cartTotal)}
+            </span>
           </div>
           <div className="flex flex-col justify-center">
             <button

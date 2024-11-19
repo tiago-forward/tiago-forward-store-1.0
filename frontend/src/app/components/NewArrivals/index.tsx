@@ -31,7 +31,7 @@ export default async function NewArrivals() {
                   <ProductCard
                     title={product.title}
                     description={product.description}
-                    price={`${product.price}`}
+                    price={product.price}
                     image="https://acdn.mitiendanube.com/stores/003/041/278/products/img_1844-cebbc67340998874ee17264073753448-480-0.webp"
                     hoverImage="https://acdn.mitiendanube.com/stores/002/283/856/products/bambu-7b1ef426e8aa3ac6bc17279169922402-480-0.webp"
                     discount={product.discount}
