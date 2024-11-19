@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NotificationBanner from "./components/NotificationBanner";
 import { CartProvider } from "@/contexts/CartContext";
+import { Toaster } from "@/components/ui/toaster";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </CartProvider>
+        <Toaster />
       </body>
     </html>
   );
