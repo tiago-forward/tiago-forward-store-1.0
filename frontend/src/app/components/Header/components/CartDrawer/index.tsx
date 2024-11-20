@@ -3,6 +3,7 @@
 import { useCart } from "@/contexts/CartContext"
 import { FormatCurrency } from "@/utils/formatCurrency";
 import { MoveLeft, X } from 'lucide-react';
+import Link from "next/link";
 
 interface CartDrawerProps {
   isOpen: boolean
@@ -56,12 +57,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             </span>
           </div>
           <div className="flex flex-col justify-center">
-            <button
-              className="w-full bg-pink-500 text-white py-2 rounded"
-              onClick={() => alert("Finalizando compra")}
-            >
-              Finalizar Compra
-            </button>
+            <Link href="/checkout" className="text-center w-full bg-pink-500 text-white py-2 rounded">Finalizar Compra</Link>
             <button className="p-4 text-sm flex items-center justify-center gap-2" onClick={onClose}>
               <MoveLeft />
               Continuar Comprando
