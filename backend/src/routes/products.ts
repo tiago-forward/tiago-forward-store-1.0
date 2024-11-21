@@ -61,10 +61,15 @@ export async function productsRoutes(app: FastifyInstance) {
             stock_quantity: z.number(),
             discount: z.number().optional(),
             image_url: z.string(),
-            category_id: z.string()
+            category_id: z.string(),
+            weight: z.number(),
+            length: z.number(),
+            height: z.number(),
+            width: z.number(),
+            diameter: z.number().optional()
         })
 
-        const { title, description, price, stock_quantity, discount, image_url, category_id } = createProductBodySchema.parse(request.body)
+        const { title, description, price, stock_quantity, discount, image_url, category_id, weight, length, height, width, diameter } = createProductBodySchema.parse(request.body)
 
         try {
             const product = await knex('products').insert({
@@ -76,6 +81,11 @@ export async function productsRoutes(app: FastifyInstance) {
                 discount,
                 image_url,
                 category_id,
+                weight,
+                length,
+                height,
+                width,
+                diameter
             })
 
             return reply.status(201).send(product)

@@ -11,7 +11,7 @@ interface CartDrawerProps {
 }
 
 export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
-  const { cartItems, cartTotal } = useCart()
+  const { cartItems, cartTotal, cartDimensions } = useCart()
 
   return (
     <>
